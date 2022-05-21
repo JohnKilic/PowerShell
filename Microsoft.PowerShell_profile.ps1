@@ -161,4 +161,5 @@ Set-Alias -Name "e" -Value "explorer"
 Set-Alias -Name "f" -Value "FindRelative"
 Set-Alias -Name "fab" -Value "FindAbsolute"
 Set-Alias -Name "touch" -Value "New-Item"
+Set-Alias -Name "py" -Value "python"
 function ProfileVersion() { Write-Output "v1.8" }
