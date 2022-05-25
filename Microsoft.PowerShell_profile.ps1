@@ -1,5 +1,12 @@
 . ([String]::Concat(($profile | Split-Path | Split-Path), "\private.ps1"))
 
+function DevShell() {
+    $installPath = . 'C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe' -latest -Property installationPath
+
+    Import-Module (Join-Path $installPath "Common7\Tools\Microsoft.VisualStudio.DevShell.dll")
+    $null = Enter-VsDevShell -VsInstallPath $installPath -SkipAutomaticLocation
+}
+
 # Finds files that are not in excluded files or folders
 function GetFiles {
     param([Parameter(ValueFromPipeline = $true)][Object[]]$files) 
