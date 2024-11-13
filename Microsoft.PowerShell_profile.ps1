@@ -54,7 +54,7 @@ function ZipDir () {
 
 function ClearNuget() { dotnet nuget locals all --clear }
 function GitIgnore { process { dotnet new gitignore } }
-
+function GitGrep($text) { $pwd = (pwd); foreach ($i in Get-ChildItem) { cd $i ; if(test-path -Path '.git') {git grep -n $text}; }; cd $pwd; }  # Grep for text in git repo
 # Creates a git repo in current directory if needed, then pushes it to GitHub
 function GitNew ($IsPublic = $false) {
 
@@ -169,4 +169,4 @@ Set-Alias -Name "f" -Value "FindRelative"
 Set-Alias -Name "fab" -Value "FindAbsolute"
 Set-Alias -Name "touch" -Value "New-Item"
 Set-Alias -Name "py" -Value "python"
-function ProfileVersion() { Write-Output "v1.8" }
+function ProfileVersion() { Write-Output "v1.9" }
